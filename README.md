@@ -20,16 +20,15 @@
 
 | Column                  | Type       | Options                            |
 | ----------------------- | ---------- | ---------------------------------- |
-| item_name               | string     | null: false                        |
-| image                   | string     | null: false                        |
-| category                | string     | null: false                        |
+| name                    | string     | null: false                        |
+| category_id             | integer    | null: false                        |
 | price                   | integer    | null: false                        |
 | text                    | text       | null: false                        |
-| item_status             | string     | null: false                        |
+| status                  | string     | null: false                        |
 | shipping_cost           | integer    | null: false                        |
 | shipping_area           | string     | null: false                        |
 | scheduled_shipping_date | string     | null: false                        |
-| user_id                 | references | null: false, foreign_key: true     |
+| user                    | references | null: false, foreign_key: true     |
 
 ### Association
 
