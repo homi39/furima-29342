@@ -37,14 +37,10 @@
 - has_one :order
 
 ## orders テーブル
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| card_number | integer    | null: false                    |
-| exp_year    | integer    | null: false                    |
-| exp_month   | integer    | null: false                    |
-| cvc         | integer    | null: false                    |
-| user_id     | references | null: false, foreign_key: true |
-| item_id     | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 ### Association
 
