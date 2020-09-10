@@ -26,10 +26,6 @@
 | category_id             | integer    | null: false                        |
 | price                   | integer    | null: false                        |
 | text                    | text       | null: false                        |
-| status                  | string     | null: false                        |
-| shipping_cost           | integer    | null: false                        |
-| shipping_area           | string     | null: false                        |
-| scheduled_shipping_date | string     | null: false                        |
 | user                    | references | null: false, foreign_key: true     |
 
 ### Association
