@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!→ordesControllersへ記述
+  # before_action :authenticate_user!→OrdesControllersへ記述
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
