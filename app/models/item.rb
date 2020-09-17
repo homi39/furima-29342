@@ -19,6 +19,7 @@ class Item < ApplicationRecord
    validates :shipping_area
    validates :scheduled_shipping_date
    validates :price, inclusion: {in: (300..9999999)}
+   validates :image
   end
   validates :category_id, numericality: { other_than: 0 }
   validates :status_id, numericality: { other_than: 0 }
