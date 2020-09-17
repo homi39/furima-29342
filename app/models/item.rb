@@ -11,15 +11,15 @@ class Item < ApplicationRecord
   belongs_to_active_hash :scheduled_shipping_date
 
   with_options presence: true do
-   validates :name
-   validates :text
-   validates :category
-   validates :status
-   validates :shipping_cost
-   validates :shipping_area
-   validates :scheduled_shipping_date
-   validates :price, inclusion: {in: (300..9999999)}
-   validates :image
+    validates :name
+    validates :text
+    validates :category
+    validates :status
+    validates :shipping_cost
+    validates :shipping_area
+    validates :scheduled_shipping_date
+    validates :price, inclusion: { in: 300..9_999_999, message: 'is invalid. Input half-width characters within 300-9,999,999' }
+    validates :image
   end
   validates :category_id, numericality: { other_than: 0 }
   validates :status_id, numericality: { other_than: 0 }

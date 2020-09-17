@@ -1,6 +1,6 @@
 function calc () {
   const itemPrice = document.getElementById("item-price");
-  itemPrice.addEventListener('keyup', function() {
+  itemPrice.addEventListener('keydown', function() {
     const taxPrice = itemPrice.value;
     const tax = taxPrice * 0.1;
     const addTaxPrice = document.getElementById("add-tax-price");
@@ -10,5 +10,4 @@ function calc () {
     profitPrice.innerHTML = `${profit}`;
   });
 }
-
-window.addEventListener('load', calc)
+window.addEventListener('keydown', calc)
