@@ -21,9 +21,12 @@ class Item < ApplicationRecord
     validates :price, inclusion: { in: 300..9_999_999, message: 'is invalid. Input half-width characters within 300-9,999,999' }
     validates :image
   end
-  validates :category_id, numericality: { other_than: 0 }
-  validates :status_id, numericality: { other_than: 0 }
-  validates :shipping_cost_id, numericality: { other_than: 0 }
-  validates :shipping_area_id, numericality: { other_than: 0 }
-  validates :scheduled_shipping_date_id, numericality: { other_than: 0 }
+  with_options numericality: { other_than: 0 } do
+    validates :category_id
+    validates :status_id
+    validates :shipping_cost_id
+    validates :shipping_area_id
+    validates :scheduled_shipping_date_id
+  end
+  
 end
