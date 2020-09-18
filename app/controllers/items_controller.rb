@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
-  
+
   private
 
   def item_params
