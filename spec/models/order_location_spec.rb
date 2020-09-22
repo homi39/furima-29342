@@ -46,17 +46,17 @@ RSpec.describe OrderLocation, type: :model do
     it '郵便番号はハイフンがないと購入できない' do
       @order_location.postal_code = '1234567'
       @order_location.valid?
-      expect(@order_location.errors.full_messages).to include("Postal code is invalid")
+      expect(@order_location.errors.full_messages).to include('Postal code is invalid')
     end
     it '電話番号にハイフンがあると購入できない' do
       @order_location.phone_number = '090-1234-5678'
       @order_location.valid?
-      expect(@order_location.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_location.errors.full_messages).to include('Phone number is invalid')
     end
     it '電話番号が11桁を超えると購入できない' do
       @order_location.phone_number = '090123456789'
       @order_location.valid?
-      expect(@order_location.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      expect(@order_location.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
   end
 end

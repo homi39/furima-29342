@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @order = Order.new
-    if  @item.order.present?
+    if @item.order.present?
       redirect_to root_path(@item.user_id)
     end
   end
@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
     Payjp::Charge.create(
       amount: @item.price,
       card: order_params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
 end
