@@ -1,10 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index
-  before_action :find_item, only: [:index]
 
   def index
+    @item = Item.find(params[:item_id])
     @order = Order.new
+    if  @item.order.present?
+      redirect_to root_path(@item.user_id)
+    end
   end
 
   def create
@@ -21,7 +24,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    binding.pry
     params.permit(:token, :postal_code, :shipping_area_id, :city, :block, :building, :phone_number, :item_id).merge(user_id: current_user.id)
   end
   
@@ -40,9 +42,5 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency:'jpy'
     )
-  end
-
-  def find_item
-    @item = Item.find(params[:item_id])
   end
 end

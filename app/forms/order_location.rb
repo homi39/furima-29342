@@ -11,7 +11,7 @@ class OrderLocation
     validates :phone_number, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 }
     validates :token
   end
-  validates :shipping_area_id, numericality: { other_than: 0 }
+  validates :shipping_area_id, numericality: { other_than: 0 , message: 'Prefecture must be  be other than 0' }
   
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
